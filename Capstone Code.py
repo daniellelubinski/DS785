@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 import googlemaps
+import os
+from dotenv import load_dotenv
 import folium
 from folium.plugins import HeatMap
 import statsmodels.api as sm
@@ -159,8 +161,9 @@ plt.ylabel("Hazmat Status")
 plt.tight_layout()
 plt.show()
 
-# Google Geocoding API key: AIzaSyCes1koMGbHLWn4LO0zwZZK2fJDQ9sSn7A
-api_key = "AIzaSyCes1koMGbHLWn4LO0zwZZK2fJDQ9sSn7A"
+# Get Google Geocoding API key: 
+load_dotenv(r"C:\Users\Server\Documents\Danielle\DS785\Google API key.env")
+api_key = os.getenv("GOOGLE_API_KEY")
 # Start Google API
 gmap = googlemaps.Client(key=api_key)
 # Get Lat and Long
